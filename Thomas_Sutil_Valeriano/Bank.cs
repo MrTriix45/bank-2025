@@ -1,9 +1,7 @@
 
-using System.Collections.Generic;
-
 public class Bank
 {
-    public Dictionary<string, CurrentAccount> Accounts { get; } = new Dictionary<string, CurrentAccount>();
+    public Dictionary<string, Account> Accounts { get; } = new Dictionary<string, Account>();
     public string Name { get; set; }
 
     // Constructor
@@ -13,7 +11,7 @@ public class Bank
     }
 
     // Method for Add New Account
-    public void AddAccount(CurrentAccount account)
+    public void AddAccount(Account account)
     {
         // Check if the number account is empy or null
         if (string.IsNullOrEmpty(account.Number))
@@ -31,7 +29,7 @@ public class Bank
         Console.WriteLine($"Account {account.Number} added successfully !");
     }
     // Method for Delete Account
-    public void DeleteAccount(CurrentAccount account)
+    public void DeleteAccount(Account account)
     {
         if (string.IsNullOrEmpty(account.Number))
         {
@@ -46,7 +44,7 @@ public class Bank
     }
     // Method for return the Balance Account
 
-    public double BalanceGet(CurrentAccount account)
+    public double BalanceGet(Account account)
     {
         Console.WriteLine($"Total Balance for the {account.Number} : {account.Balance}");
         return account.Balance;

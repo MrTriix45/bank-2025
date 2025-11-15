@@ -2,8 +2,8 @@
 Person p = new("Thomas", "Sutil", new DateTime(2001,3,25));
 
 //Testing CurrentAccount Method
-CurrentAccount pA = new("BE3256", 1200, 0,p);
-CurrentAccount pB = new("BE32257", 1450, 0, p);
+CurrentAccount pA = new("BE3256", 1200, 0, p);
+CurrentAccount pB = new("BE3257", 1450, 0, p);
 pA.Withdraw(200);
 pA.Deposit(350);
 
@@ -14,5 +14,11 @@ TotoBank.AddAccount(pB);
 TotoBank.BalanceGet(pB);
 TotoBank.GetTotalBalanceAll(p);
 
-Console.WriteLine(p.FirstName + " " + p.LastName);
-Console.Write(pA.Number + " " + pA.Balance + " " + pA.CreditLine + " " + p.FirstName);
+// Test for SavingsAccount
+SavingsAccount pC = new("BE3258", 1789, p);
+pC.Withdraw(200);
+
+Console.WriteLine(p.FirstName + " " + p.LastName); //Person
+Console.WriteLine(pA.Number + " " + pA.Balance + " " + pA.CreditLine + " " + p.FirstName); //CurrentAccount
+Console.WriteLine($"{pC.Number} {pC.Balance} {pC.DateLastWithdraw} {pC.Owner.LastName}"); //SavingsAccount
+
